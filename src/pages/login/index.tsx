@@ -36,6 +36,7 @@ const LoginUser: React.FC = () => {
                 const deviceType = values.device_type === 'android' ? '0' : '1';
                 const payload = { ...values, device_type: deviceType };
                 const response = await login(payload);
+                //not getting correct status code that why error handling using message
                 if (!(response?.data?.error === 'Invalid combination of email and password.')) {
                     const auth = {
                         id: response?.data?.id,
